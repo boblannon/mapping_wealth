@@ -1,0 +1,419 @@
+h1{
+    font-family:georgia, serif;
+    color: #3a7982;
+    font-size: 37px;
+    font-weight: normal;
+
+}
+h2{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    color:#58595b;
+    font-weight:bold;
+    padding-top:20px;
+    padding-bottom:30px;
+}
+
+h3{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    color:#58595b;
+    font-weight:bold;
+    padding-top:0;
+    margin-top:0;
+}
+
+p{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 23px;
+    color:#58595b;
+}
+
+/* TOOLTIP */
+
+.countyDetail h3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.countyDetail p {
+  text-align: right;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 0.8em;
+}
+
+.tooltip {
+  z-index: 999;
+  background-color: #e5e5e5;
+  min-width: 200px;
+  /* height: 175px;*/
+  pointer-events:none;
+  padding: 10px;
+}
+
+.tooltip.locked {
+  background-color: #e5e5e5;
+}
+
+.tooltip.locked:before {
+  position: absolute;
+  top: -7px;
+  left: 10px;
+  display:inline-block;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid blue;
+  border-left: 7px solid transparent;
+  border-bottom-color: #e5e5e5;
+  content: '';
+}
+
+.tooltip.tophalf:before {
+  position: absolute;
+  top:-7px;
+  left: 10px;
+  display: inline-block;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #FFFF00;
+  border-left: 7px solid transparent;
+  border-bottom-color: #e5e5e5;
+  content: '';
+}
+
+.tooltip.bottomhalf:after {
+  position: absolute;
+  bottom: -7px;
+  left: 10px;
+  display:inline-block;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #FFFF00;
+  border-left: 7px solid transparent;
+  border-top-color: #e5e5e5;
+  content: '';
+}
+
+ /* BASIC PAGE DIVISION */
+
+
+      #page {
+        font-family:sans-serif;
+        width: 960px;
+        margin: 20px auto;
+      }
+
+      #rightSide {
+        float: right;
+        width: 700px;
+      }
+
+      #leftSide {
+        float: left;
+        width: 218px;
+        min-height: 680px;
+        background: #f4f4f4;
+        }
+
+/* SIDEBAR AND CAPTION */
+
+      #sidebar-caption {
+        height: 0px;
+        display: block;
+        margin-top: 10px;
+        padding-left:15px;
+      }
+
+      #sidebar-caption p {
+        color: white;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 1em;
+      }
+
+      #sidebar-caption ul {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        color: white;
+        font-size: 0.7em;
+        list-style: none;
+        padding-left: 0px;
+        margin-left: 0px;
+      }
+
+      #sidebar {
+        /*width: 188px;*/
+        height: 613px;
+        margin: auto;
+        background: #f4f4f4;
+        overflow: visible;
+      }
+
+/* LINE GRAPHS */
+
+
+      #lineGraphContainer{
+        overflow: visible;
+        padding: 20px 0;
+        margin: 20px 0;
+        clear: both;
+      }
+
+
+
+      #lineGraphSelector {
+        fill: none; /*rgba(128,128,128,0.5);*/
+        stroke-width: 3px;
+        stroke: #58595b;
+        pointer-events: none;
+
+      }
+
+      .axis {
+        font-size: 0.6em;
+        pointer-events:none;
+      }
+
+      .lineGraph .line {
+        fill: none;
+        stroke-width: 1px;
+        pointer-events: none;
+      }
+
+
+      .valueText {
+        font-size: 2.5em;
+        pointer-events: none;
+      }
+
+      .lineGraphTitle {
+        font-size: 0.8em;
+        font-weight: bold;
+      }
+
+      .axis path{
+        fill:none;
+        stroke: black;
+      }
+
+      .tick {
+        fill:none;
+        stroke:black;
+      }
+
+      .yearLine {
+        stroke:#D3D3D3;
+        stroke-dasharray: 5,6;
+        stroke-width: 2px;
+      }
+
+      .lineGraphMask {
+         fill:rgba(55,55,55,0);
+      }
+      .lineGraphMask.darkened {
+         fill:rgba(55,55,55,.3);
+      }
+
+      .lineGraphSubTitle {
+        font-size: 0.8em;
+        font-weight: bold;
+      }
+
+      .dot {
+        pointer-events: none;
+      }
+
+      /* Hisogram*/
+      .histogramMask{
+          fill:rgba(55,55,55,0);
+          stroke: #58595b;
+
+
+      }
+
+
+
+      /* MAP */
+
+      #resetZoomButton rect {
+        fill: #eee;
+        padding: 5px;
+      }
+
+      #resetZoomButton text {
+        fill: #58595b;
+        text-transform:uppercase;
+      }
+
+      #resetZoomButtonText{
+          font-size: 12px ;
+          font-weight:bold;
+          color: #58595b;
+          text-transform:uppercase;
+      }
+
+
+      #map {
+        background: #FFFFFF;
+        display: block;
+        height: 430px;
+        width: 100%;
+      }
+
+      .hidden {
+        visibility: hidden;
+      }
+
+      /* LEGEND */
+
+      #legendCaption {
+        margin-top: 15.5px;
+        margin-bottom: 15.5px;
+      }
+
+      #legend {
+        display: block;
+        width: 100%;
+        height: 60px;
+        background: #FFFFFF;
+      }
+
+      #legendLabel {
+        width: 100%;
+        background: #FFFFFF;
+      }
+
+      #legendLabel p {
+        margin-top: 0px;
+        text-align: center;
+        display: inline-block;
+        font-size: 0.8em;
+      }
+
+      /*
+      #legend rect {
+        stroke-width:1;
+        stroke:rgb(0,0,0);
+      }
+      */
+
+      #legend tspan {
+        font-size: 0.8em;
+      }
+
+      #counties path {
+        stroke: #000;
+        stroke-width: .25px;
+      }
+
+      #states path {
+        fill:none;
+        stroke: #000;
+        stroke-width: 0.5px;
+      }
+
+      .right-float {
+        float:right;
+      }
+
+      .highlighted {
+        stroke-width: 1px;
+      }
+
+    /*
+     * COLORAMA! *
+                 */
+
+    /* ANY COUNTIES WITHOUT DATA */
+    .not_found {fill:#FFF}
+
+    /* FOR AVERAGE AGI */
+    .Greens .q0-8{fill:rgb(224,245,178)}
+    .Greens .q1-8{fill:rgb(184,216,131)}
+    .Greens .q2-8{fill:rgb(121,168,50)}
+    .Greens .q3-8{fill:rgb(98,136,29)}
+    .Greens .q4-8{fill:rgb(80,119,17)}
+    .Greens .q5-8{fill:rgb(56,91,4)}
+    .Greens .q6-8{fill:rgb(33,62,2)}
+    .Greens .q7-8{fill:rgb(10,38,0)}
+    .Greens .line{fill:none; stroke:rgb(98,136,29)}
+    .Greens .dot{fill:rgb(98,136,29)}
+    .Greens .dimText{fill:rgb(98,136,29)}
+
+    /* FOR AVERAGE WAGES */
+    .Blues .q0-8{fill:rgb(206,239,234)}
+    .Blues .q1-8{fill:rgb(172,218,217)}
+    .Blues .q2-8{fill:rgb(134,196,199)}
+    .Blues .q3-8{fill:rgb(98,162,166)}
+    .Blues .q4-8{fill:rgb(60,122,126)}
+    .Blues .q5-8{fill:rgb(68,106,107)}
+    .Blues .q6-8{fill:rgb(51,75,82)}
+    .Blues .q7-8{fill:rgb(32,46,55)}
+    .Blues .line{fill:none; stroke:rgb(60,122,126)}
+    .Blues .dot{fill:rgb(60,122,126)}
+    .Blues .dimText{fill:rgb(60,122,126)}
+
+    /* FOR AVERAGE DIVIDENDS */
+    .Oranges .q0-8{fill:rgb(255,231,151)}
+    .Oranges .q1-8{fill:rgb(239,181,93)}
+    .Oranges .q2-8{fill:rgb(230,130,53)}
+    .Oranges .q3-8{fill:rgb(200,97,29)}
+    .Oranges .q4-8{fill:rgb(180,71,6)}
+    .Oranges .q5-8{fill:rgb(153,54,0)}
+    .Oranges .q6-8{fill:rgb(111,28,0)}
+    .Oranges .q7-8{fill:rgb(70,24,0)}
+    .Oranges .line{fill:none;stroke:rgb(200,97,29)}
+    .Oranges .dot{fill:rgb(200,97,29)}
+    .Oranges .dimText{fill:rgb(200,97,29)}
+
+    /* FOR AVERAGE INTEREST */
+    .Purples .q0-8{fill:rgb(254,253,202)}
+    .Purples .q1-8{fill:rgb(255,245,180)}
+    .Purples .q2-8{fill:rgb(253,232,142)}
+    .Purples .q3-8{fill:rgb(245,207,99)}
+    .Purples .q4-8{fill:rgb(222,184,69)}
+    .Purples .q5-8{fill:rgb(197,150,56)}
+    .Purples .q6-8{fill:rgb(163,117,38)}
+    .Purples .q7-8{fill:rgb(116,65,9)}
+    .Purples .line{fill:none;stroke:rgb(222,184,69)}
+    .Purples .dot{fill:rgb(222,184,69)}
+    .Purples .dimText{fill:rgb(222,184,69)}
+
+    #slider {
+      margin: auto;
+      height: 10px;
+    }
+
+   #slider.ui-slider .ui-slider-handle{
+    width:.5em;
+    background:#58595B;
+
+}
+
+
+    #sliderContainer {
+      background: #ffffff;
+    }
+
+    .ui-slider-legend p {
+      display: inline-block;
+      text-align: center;
+      margin-bottom: 0px;
+    }
+
+
+    .fadedLine {
+      fill: none;
+      stroke-width: 1px;
+      pointer-events: none;
+      stroke: gray;
+    }
+
+    .fadedDimText {
+      fill:gray;
+    }
+
+    .fadedDot {
+      fill: gray;
+    }
+

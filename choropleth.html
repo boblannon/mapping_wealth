@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>U.S. Unemployment by County</title>
+    <link type="text/css" rel="stylesheet" href="/mapping_wealth/css/choropleth.css"/>
+    <link type="text/css" rel="stylesheet" href="/mapping_wealth/css/ui-lightness/jquery-ui-1.9.1.custom.css"></script>
+    <link rel="stylesheet" href="/mapping_wealth/css/tipsy.css" type="text/css" />
+
+    <script type="text/javascript" src="/mapping_wealth/js/d3.v2.js"></script>
+    <script type="text/javascript" src="/mapping_wealth/js/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="/mapping_wealth/js/jquery-ui-1.9.1.custom.js"></script>
+    <script type='text/javascript' src='/mapping_wealth/js/jquery.tipsy.js'></script>
+    <script type="text/javascript" src="/mapping_wealth/js/underscore-min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+          var yearSlider = $( "#slider" ).slider({
+                          value:2004,
+                          min: 1989,
+                          max: 2009,
+                          step: 1,
+                          slide: function(event,ui) {
+                                    updateYear(ui.value);
+                                    }
+                                    });
+          //var options = ["2004","2005","2006","2007","2008","2009"];
+          var o = [];
+          for (var i in years) {
+            o.push(years[i].slice(2));
+          }
+          rsWidth = ($('#rightSide').width());
+          while (rsWidth % o.length) {
+            //console.log(rsWidth+' % '+options.length+'='+(rsWidth % options.length));
+            rsWidth--;
+            }
+          var spacer = ($('#rightSide').width() - rsWidth)/2;
+          var sliderLegendWidth = (rsWidth / (o.length));
+          var sliderWidth = rsWidth - sliderLegendWidth;
+          yearSlider.width(sliderWidth);
+          yearSlider.after('<div class="ui-slider-legend"><p style="width:' + sliderLegendWidth + 'px;margin-left:'+spacer+'px;">' + o.join('</p><p style="width:' + sliderLegendWidth + 'px;">') +'</p></div>');
+
+          //console.log(d3.selectAll('#counties path'));
+          //window.document.onmousemove = function(e){console.log([e.pageX,e.pageY]);};
+          });
+   </script>
+  </head>
+  <body>
+    <!--div class="tooltip" style="opacity:1e-6">
+      <h3>Arlington, VA</h3>
+      <p>Average adjusted gross income for Arlington: $18,000</p>
+      <p><em>Below the Poverty Line</em></p>
+      <p>Average adjusted gross income for Virginia: $18,000</p>
+      <p>Average adjusted gross income for the nation: $18,000</p>
+    </div-->
+    <div id="page">
+      <div id="intro">
+        <h1>Mapping Wealth</h1>
+        <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularized in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+      </div>
+      <h2>Showing <span id="dimShown">Average Adjusted Gross Income</span> <span id="areaShown">nationally</span> in <span id="yearShown">2004</span> </h2>
+      <h3><span id="inflationShown">adjusted for inflation</span></h3>
+      <div id="leftSide">
+        <div id="sidebar-caption">
+            <h3>Sort by type:</h3>
+        </div>
+        <div id="sidebar">
+          <svg id="lineGraphContainer">
+          </svg>
+          <br clear="all"/>
+        </div>
+
+      </div>
+      <div id="rightSide">
+        <!--
+        <div id="simple-slider" class="dragdealer rounded-cornered">
+          <div class="red-bar handle" id="sliderHandle">2004</div>
+        </div>
+        -->
+
+        <div id="sliderContainer">
+            <h3>Sort by year:</h3>
+
+          <div id="slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 20%; "></a></div>
+        </div>
+
+        <div class="tooltipContainer" id="mapTooltip" style="position:relative"></div>
+        <svg id="map">
+          <g id="mapContainer">
+            <g id="counties"></g>
+            <g id="states"></g>
+          </g>
+          <g id="resetZoomButton">
+            <rect x="10" y="10" rx="5" ry="5" height="40" width="100"></rect>
+            <text id="resetZoomButtonText" x="22" y="35">Reset Zoom</text>
+          </g>
+          <h3 id="legendCaption"> Overall distribution of interest throughout the country </h3>
+        <svg id="legend">
+          <svg id="histogram" x="10" y="5" height="50" width="700"></svg>
+          <svg id="histogramMask" x="10" y="5" height="50" width="700"></svg>
+          <!-- <svg id="labelRow" x="10" y="52" height="40" width="700">
+            <text id="labels"></text>
+            </svg> -->
+        </svg>
+        <div id="legendLabel"></div>
+
+    <!-- script type="text/javascript" src="data/all_years.js"></script -->
+    <script type="text/javascript" src="/mapping_wealth/data/county_data.js"></script>
+    <script type="text/javascript" src="/mapping_wealth/data/state_data.js"></script>
+    <script type="text/javascript" src="/mapping_wealth/data/summary_data.js"></script>
+    <script type="text/javascript" src="/mapping_wealth/data/dummy_data.js"></script>
+    <script type="text/javascript" src="/mapping_wealth/js/choropleth.js"></script>
+      </div> <!-- end div rightSide -->
+    </div> <!-- end div page -->
+  </body>
+</html>
